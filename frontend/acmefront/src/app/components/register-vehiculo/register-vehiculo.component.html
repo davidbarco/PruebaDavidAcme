@@ -1,37 +1,37 @@
 <div class="container">
-    <h2>Registrar Propietario</h2>
+    <h2>Registrar vehiculo</h2>
 
     <form [formGroup]="capForm" (ngSubmit)="registerCap()" enctype="multipart/form-data">
 
         
         <div class="form-group">
-            <label for="cedula">placa</label>
-            <input id="cedula" name="cedula" formControlName="cedula" type="text" class="form-control">
+            <label for="placa">placa</label>
+            <input id="placa" name="placa" formControlName="placa" type="text" class="form-control">
         </div>
         <div class="form-group">
-            <label for="primerNombre">color</label>
-            <input id="primerNombre" name="primerNombre" formControlName="primerNombre" type="text" class="form-control">
-        </div>
-
-        <div class="form-group">
-            <label for="SegundoNombre">marca</label>
-            <input id="SegundoNombre" name="SegundoNombre" formControlName="SegundoNombre" type="text" class="form-control">
+            <label for="color">color</label>
+            <input id="color" name="color" formControlName="color" type="text" class="form-control">
         </div>
 
         <div class="form-group">
-            <label for="apellidos">tipo de vehiculo</label>
-            <input id="apellidos" name="apellidos" formControlName="apellidos" type="text" class="form-control">
+            <label for="marca">marca</label>
+            <input id="marca" name="marca" formControlName="marca" type="text" class="form-control">
         </div>
 
         <div class="form-group">
-            <label for="direccion">id conductor</label>
-            <input id="direccion" name="direccion" formControlName="direccion" type="text"
+            <label for="tipoVehiculo">tipo de vehiculo</label>
+            <input id="tipoVehiculo" name="tipoVehiculo" formControlName="tipoVehiculo" type="text" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="idConductor">id conductor</label>
+            <input id="idConductor" name="idConductor" formControlName="idConductor" type="text"
                 class="form-control">
         </div>
 
         <div class="form-group">
-            <label for="telefono">idPropietario</label>
-            <input id="telefono" name="telefono" formControlName="telefono" type="text"
+            <label for="idPropietario">idPropietario</label>
+            <input id="idPropietario" name="idPropietario" formControlName="idPropietario" type="text"
                 class="form-control">
         </div>
 
@@ -45,7 +45,7 @@
         </div> -->
 
         <div class="text-center">
-            <button type="submit" class="btn btn-info"> Enviar </button>
+            <button type="submit" class="btn btn-info">Enviar</button>
         </div>
 
     </form>

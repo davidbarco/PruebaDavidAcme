@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http'; //Nos permite hacer conexiones con aplicaciones externas utilizando el protocolo http
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http'; //Nos permite hacer conexiones con aplicaciones externas utilizando el protocolo http
 import { Conductor } from '../models/conductor'; //Cargamos el modelo
 /* import { UserService } from './user.service'; */
 import { GLOBAL } from './global'
@@ -11,9 +11,15 @@ import { GLOBAL } from './global'
 export class ConductorService {
 
   public apiURL: string
-
+  private headers = new HttpHeaders(
+    {
+        'Content-Type':  'application/x-www-form-urlencoded',
+        Accept: '/',
+    }
+);
   constructor(
     private http: HttpClient,
+    
     /* private user: UserService */
 
   ) {this.apiURL= GLOBAL.url }
@@ -28,8 +34,14 @@ export class ConductorService {
     }
   }
 
-  createCap(formData, serieId) {
-    return this.http.post<Conductor>(`${this.apiURL}/create-conductor`, formData);
+  createCap(formData) {
+    //const body = new HttpParams({fromObject: formData});
+    const options = { headers: this.headers};
+    const params = new HttpParams();
+    params.set('username', 'username');
+    params.set('password', 'password');
+    return this.http.post<Conductor>(`${this.apiURL}/create-conductor`, params.toString(),options);
+
   }
 
  /*  getCaps(filter, page) {

@@ -19,7 +19,9 @@ export class RegisterConductorComponent implements OnInit {
     private routeParams: ActivatedRoute, //Lo vamos a utilizar para obtener los parametros de la url.
     private route: Router //Para generar redirecciones
 
-  ) { }
+  ) {
+    this.validateForm();
+   }
 
   ngOnInit(): void {
   }
@@ -56,10 +58,10 @@ export class RegisterConductorComponent implements OnInit {
 
       
        {
-        this.capService.createCap(formData, this.localId).subscribe(
+        this.capService.createCap(formData).subscribe(
           (createdSong) => {
-            alert("capitulo creado");
-            this.route.navigate(['/misCanciones']);//Redireccionar a otro componente.
+            alert("conductor creado");
+            this.route.navigate(['/registrarConductor']);//Redireccionar a otro componente.
           },
           (error) => {
 

@@ -26,7 +26,7 @@ export class VehiculoService {
     }
   }
 
-  createCap(formData, serieId) {
+  createCap(formData) {
     return this.http.post<Vehiculo>(`${this.apiURL}/create-vehiculo`, formData);
   }
 

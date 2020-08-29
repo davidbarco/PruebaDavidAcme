@@ -19,7 +19,9 @@ export class RegisterVehiculoComponent implements OnInit {
     private routeParams: ActivatedRoute, //Lo vamos a utilizar para obtener los parametros de la url.
     private route: Router //Para generar redirecciones
 
-  ) { }
+  ) {
+    this.validateForm();
+   }
 
   ngOnInit(): void {
   }
@@ -55,23 +57,21 @@ export class RegisterVehiculoComponent implements OnInit {
 
       
        
-        this.capService.createCap(formData, this.).subscribe(
+         this.capService.createCap(formData).subscribe(
           (createdSong) => {
-            alert("propietario creado");
-            this.route.navigate(['/misCanciones']);//Redireccionar a otro componente.
+            alert("vehiculo creado");
+            this.route.navigate(['/registrarvehiculo']);//Redireccionar a otro componente.
           },
           (error) => {
-
-            console.error("Error al crear la canción", error)
+            console.error("Error al crear el formulario", error)
           }
         );
-       
-    } else {
-      alert("Error, debes llenar todos los campos");
-    }
+        } else {
+          alert("Error, debes llenar todos los campos");
+       }
 
   }
-
+ 
  
 
 

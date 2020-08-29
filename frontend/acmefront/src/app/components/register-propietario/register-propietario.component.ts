@@ -19,7 +19,9 @@ export class RegisterPropietarioComponent implements OnInit {
     private routeParams: ActivatedRoute, //Lo vamos a utilizar para obtener los parametros de la url.
     private route: Router //Para generar redirecciones
 
-  ) { }
+  ) {
+    this.validateForm();
+   }
 
   ngOnInit(): void {
   }
@@ -55,10 +57,10 @@ export class RegisterPropietarioComponent implements OnInit {
 
       
        
-        this.capService.createCap(formData, this.localId).subscribe(
+        this.capService.createCap(formData).subscribe(
           (createdSong) => {
             alert("propietario creado");
-            this.route.navigate(['/misCanciones']);//Redireccionar a otro componente.
+            this.route.navigate(['/registrarPropietario']);//Redireccionar a otro componente.
           },
           (error) => {
 
