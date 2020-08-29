@@ -28,7 +28,7 @@ export class PropietarioService {
     }
   }
 
-  createCap(formData, serieId) {
+  createCap(formData) {
     return this.http.post<Propietario>(`${this.apiURL}/create-propietario`, formData);
   }
 

@@ -11,12 +11,12 @@ import { GLOBAL } from './global'
 export class ConductorService {
 
   public apiURL: string
-  private headers = new HttpHeaders(
+  /* private headers = new HttpHeaders(
     {
         'Content-Type':  'application/x-www-form-urlencoded',
         Accept: '/',
     }
-);
+); */
   constructor(
     private http: HttpClient,
     
@@ -34,13 +34,8 @@ export class ConductorService {
     }
   }
 
-  createCap(formData) {
-    //const body = new HttpParams({fromObject: formData});
-    const options = { headers: this.headers};
-    const params = new HttpParams();
-    params.set('username', 'username');
-    params.set('password', 'password');
-    return this.http.post<Conductor>(`${this.apiURL}/create-conductor`, params.toString(),options);
+  createCap(formData)  {
+    return this.http.post<Conductor>(`${this.apiURL}/create-conductor`, formData);
 
   }
 

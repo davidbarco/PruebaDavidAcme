@@ -1,56 +1,60 @@
 <div class="container">
     <h2>Registrar Conductor</h2>
 
-    <form [formGroup]="capForm" (ngSubmit)="registerCap()" enctype="multipart/form-data">
+    <form [formGroup]="capForm" (ngSubmit)="registerCap()">
 
 
         <div class="form-group">
-            <label for="cedula">cedula</label>
+            <label for="cedula">cedula</label> <br>
             <input id="cedula" name="cedula" formControlName="cedula" type="text" class="form-control">
         </div>
         <div class="form-group">
-            <label for="primerNombre">primer nombre</label>
+            <label for="primerNombre">primer nombre</label> <br>
             <input id="primerNombre" name="primerNombre" formControlName="primerNombre" type="text" class="form-control">
         </div>
 
         <div class="form-group">
-            <label for="SegundoNombre">segundo nombre</label>
+            <label for="SegundoNombre">segundo nombre</label> <br>
             <input id="SegundoNombre" name="SegundoNombre" formControlName="SegundoNombre" type="text" class="form-control">
         </div>
 
         <div class="form-group">
-            <label for="apellidos">apellidos</label>
+            <label for="apellidos">apellidos</label> <br>
             <input id="apellidos" name="apellidos" formControlName="apellidos" type="text" class="form-control">
         </div>
 
         <div class="form-group">
-            <label for="direccion">direccion</label>
+            <label for="direccion">direccion</label> <br>
             <input id="direccion" name="direccion" formControlName="direccion" type="text"
                 class="form-control">
         </div>
 
         <div class="form-group">
-            <label for="telefono">telefono</label>
+            <label for="telefono">telefono</label> <br>
             <input id="telefono" name="telefono" formControlName="telefono" type="text"
                 class="form-control">
         </div>
 
         <div class="form-group">
-            <label for="ciudad">ciudad</label>
+            <label for="ciudad">ciudad</label> <br>
             <input id="ciudad" name="ciudad" formControlName="ciudad" type="text"
                 class="form-control">
         </div>
 
-        <!-- <div
-            *ngIf="!capForm.get('capName').valid || !capForm.get('duration').valid  || !capForm.get('file').valid || !capForm.get('capNumber').valid">
+        <div
+            *ngIf="!capForm.get('cedula').valid || !capForm.get('primerNombre').valid  || !capForm.get('SegundoNombre').valid || !capForm.get('apellidos').valid || !capForm.get('direccion').valid || !capForm.get('direccion').valid || !capForm.get('telefono').valid || !capForm.get('ciudad').valid" >
             <div class="text-danger">
                 Debes llenar todos los campos
             </div>
-        </div> -->
+        </div>
 
         <div class="text-center">
             <button type="submit" class="btn btn-info"> Enviar </button>
         </div>
 
+
+
     </form>
+
 </div>
+

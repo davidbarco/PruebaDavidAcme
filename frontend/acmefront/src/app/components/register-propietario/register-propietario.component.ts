@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ConductorService } from '../../services/conductor.service';
+import {PropietarioService  } from '../../services/propietario.service';
 
 @Component({
   selector: 'app-register-propietario',
@@ -15,7 +15,7 @@ export class RegisterPropietarioComponent implements OnInit {
   constructor(
       
     private formBuilder: FormBuilder,
-    private capService: ConductorService,
+    private capService: PropietarioService,
     private routeParams: ActivatedRoute, //Lo vamos a utilizar para obtener los parametros de la url.
     private route: Router //Para generar redirecciones
 
@@ -57,7 +57,7 @@ export class RegisterPropietarioComponent implements OnInit {
 
       
        
-        this.capService.createCap(formData).subscribe(
+        this.capService.createCap(cap).subscribe(
           (createdSong) => {
             alert("propietario creado");
             this.route.navigate(['/registrarPropietario']);//Redireccionar a otro componente.

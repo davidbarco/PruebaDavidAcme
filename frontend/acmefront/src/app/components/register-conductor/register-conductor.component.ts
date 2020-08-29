@@ -12,12 +12,13 @@ import { ConductorService } from '../../services/conductor.service';
 export class RegisterConductorComponent implements OnInit {
   
   capForm: FormGroup;
+  nombre: string;
 
   constructor(
     private formBuilder: FormBuilder,
     private capService: ConductorService,
-    private routeParams: ActivatedRoute, //Lo vamos a utilizar para obtener los parametros de la url.
-    private route: Router //Para generar redirecciones
+    private routeParams: ActivatedRoute, 
+    private route: Router 
 
   ) {
     this.validateForm();
@@ -37,6 +38,7 @@ export class RegisterConductorComponent implements OnInit {
       ciudad: ['', Validators.required],
       
     })
+    
   }
 
    
@@ -44,9 +46,9 @@ export class RegisterConductorComponent implements OnInit {
 
   registerCap() {
     if (this.capForm.valid) {
-
+          
       const cap = this.capForm.value;
-      
+    
       const formData = new FormData();
       formData.append('cedula', cap.cedula);
       formData.append('primerNombre', cap.primerNombre);
@@ -55,22 +57,25 @@ export class RegisterConductorComponent implements OnInit {
       formData.append('direccion', cap.direccion);
       formData.append('telefono', cap.telefono);
       formData.append('ciudad', cap.ciudad);
-
-      
-       {
-        this.capService.createCap(formData).subscribe(
+        
+        
+          
+          this.capService.createCap(cap).subscribe(
           (createdSong) => {
+            this.nombre=createdSong.SegundoNombre;
+            console.log(this.nombre, "nombreconductor");
+            console.log(createdSong, "songcreated")
             alert("conductor creado");
             this.route.navigate(['/registrarConductor']);//Redireccionar a otro componente.
           },
           (error) => {
-
             console.error("Error al crear la canción", error)
           }
         );
-      } 
-    } else {
-      alert("Error, debes llenar todos los campos");
+      } else {
+        alert("Error, debes llenar todos los campos");
+     }
+      
     }
 
   }
@@ -78,4 +83,4 @@ export class RegisterConductorComponent implements OnInit {
 
 
 
-}
+

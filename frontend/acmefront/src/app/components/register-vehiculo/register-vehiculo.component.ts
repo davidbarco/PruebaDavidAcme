@@ -25,8 +25,7 @@ export class RegisterVehiculoComponent implements OnInit {
 
   ngOnInit(): void {
   }
-   
-   
+    
   validateForm() {
     this.capForm = this.formBuilder.group({
       placa: ['', Validators.required],
@@ -35,11 +34,9 @@ export class RegisterVehiculoComponent implements OnInit {
       tipoVehiculo: ['', Validators.required],
       idConductor: ['', Validators.required],
       idPropietario: ['', Validators.required],
-      
-      
+          
     })
   }
-
 
   registerCap() {
     if (this.capForm.valid) {
@@ -54,10 +51,8 @@ export class RegisterVehiculoComponent implements OnInit {
       formData.append('idConductor', cap.idConductor);
       formData.append('idPropietario', cap.idPropietario);
       
-
-      
        
-         this.capService.createCap(formData).subscribe(
+         this.capService.createCap(cap).subscribe(
           (createdSong) => {
             alert("vehiculo creado");
             this.route.navigate(['/registrarvehiculo']);//Redireccionar a otro componente.
@@ -72,8 +67,5 @@ export class RegisterVehiculoComponent implements OnInit {
 
   }
  
- 
-
-
     
 }
